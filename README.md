@@ -1,16 +1,7 @@
-# handy_and_d
+# Handy&D
 
-A new Flutter project.
+Handy&D est un projet libre dans le cadre de ma 5é année à Epitech.
+Ce dernier permettra de dématérialiser des fiches Donjons & Dragons grace à une application mobile.
+Ce projet est réalisé en binôme, grâce aux outils Figma et Flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Des DevLogs sont rédigé sur mon compte [Twitter](https://twitter.com/rymcode/status/1455579679516135427?s=21).
