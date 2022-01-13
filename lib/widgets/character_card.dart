@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:handy_and_d/core/constants/margin.dart' as margin;
+import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
+import 'package:handy_and_d/widgets/custom_text.dart';
 
 class CharacterCard extends StatelessWidget {
   final CharacterViewModel characterViewModel;
@@ -16,9 +18,12 @@ class CharacterCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Name: " + characterViewModel.name.toString()),
-            Text("Race: " + characterViewModel.race.toString()),
-            Text("Class: " + characterViewModel.roleLabel.toString()),
+            CustomText(
+                text: characterViewModel.name.toString(),
+                defaultStyle: TEXT_BOLD),
+            CustomText(
+                text: characterViewModel.race.toString(), defaultStyle: TEXT),
+            CustomText(text: characterViewModel.roleLabel, defaultStyle: TEXT),
           ],
         ),
       ),

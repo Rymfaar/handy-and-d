@@ -26,7 +26,6 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          // return Text(listenViewModel.characters[index].name ?? "");
           return CharacterCard(
             characterViewModel: listenViewModel.characters[index],
           );
