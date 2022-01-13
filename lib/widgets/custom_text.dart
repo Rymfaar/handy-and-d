@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/core/constants/text_style.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
   final TextStyle defaultStyle;
   final Color textColor;
-  //todo: font
+  //? Fonts
 
   const CustomText(
       {required this.text,

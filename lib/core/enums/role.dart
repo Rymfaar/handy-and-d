@@ -17,66 +17,66 @@ enum Role {
 }
 
 class Barbarian {
-  static const PRIMARY = 0xD17158FF;
-  static const SECONDARY = 0xF6E3DEFF;
+  static const PRIMARY = 0xFFD17158;
+  static const SECONDARY = 0xFFF6E3DE;
 }
 
 class Bard {
-  static const PRIMARY = 0xB28AB3FF;
-  static const SECONDARY = 0xF0E8EFFF;
+  static const PRIMARY = 0xFFB28AB3;
+  static const SECONDARY = 0xFFF0E8EF;
 }
 
 class Cleric {
-  static const PRIMARY = 0x8B8C8EFF;
-  static const SECONDARY = 0xE8E8E8FF;
+  static const PRIMARY = 0xFF8B8C8E;
+  static const SECONDARY = 0xFFE8E8E8;
 }
 
 class Druid {
-  static const PRIMARY = 0x808B47FF;
-  static const SECONDARY = 0xE6E7DAFF;
+  static const PRIMARY = 0xFF808B47;
+  static const SECONDARY = 0xFFE6E7DA;
 }
 
 class Fighter {
-  static const PRIMARY = 0x5A382CFF;
-  static const SECONDARY = 0xDED7D5FF;
+  static const PRIMARY = 0xFF5A382C;
+  static const SECONDARY = 0xFFDED7D5;
 }
 
 class Monk {
-  static const PRIMARY = 0x43A2C8FF;
-  static const SECONDARY = 0xD9ECF3FF;
+  static const PRIMARY = 0xFF43A2C8;
+  static const SECONDARY = 0xFFD9ECF3;
 }
 
 class Paladin {
-  static const PRIMARY = 0xC0AF71FF;
-  static const SECONDARY = 0xF2EEE2FF;
+  static const PRIMARY = 0xFFC0AF71;
+  static const SECONDARY = 0xFFF2EEE2;
 }
 
 class Ranger {
-  static const PRIMARY = 0x497A5CFF;
-  static const SECONDARY = 0xDBE4DEFF;
+  static const PRIMARY = 0xFF497A5C;
+  static const SECONDARY = 0xFFDBE4DE;
 }
 
 class Rogue {
-  static const PRIMARY = 0x4A4B45FF;
-  static const SECONDARY = 0xDBDBDAFF;
+  static const PRIMARY = 0xFF4A4B45;
+  static const SECONDARY = 0xFFDBDBDA;
 }
 
 class Sorcerer {
-  static const PRIMARY = 0xC25359FF;
-  static const SECONDARY = 0xF3DDDEFF;
+  static const PRIMARY = 0xFFC25359;
+  static const SECONDARY = 0xFFF3DDDE;
 }
 
 class Warlock {
-  static const PRIMARY = 0x7A49AEFF;
-  static const SECONDARY = 0xE3DBEFFF;
+  static const PRIMARY = 0xFF7A49AE;
+  static const SECONDARY = 0xFFE3DBEF;
 }
 
 class Wizard {
-  static const PRIMARY = 0x275FB8FF;
-  static const SECONDARY = 0xD4DFF1FF;
+  static const PRIMARY = 0xFF275FB8;
+  static const SECONDARY = 0xFFD4DFF1;
 }
 
 class Artificer {
-  static const PRIMARY = 0x7B673DFF;
-  static const SECONDARY = 0xE5E0D7FF;
+  static const PRIMARY = 0xFF7B673D;
+  static const SECONDARY = 0xFFE5E0D7;
 }

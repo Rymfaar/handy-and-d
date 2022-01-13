@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:handy_and_d/core/constants/margin.dart' as margin;
 import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
@@ -15,15 +16,26 @@ class CharacterCard extends StatelessWidget {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(margin.MARGIN_M),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
-            CustomText(
-                text: characterViewModel.name.toString(),
-                defaultStyle: TEXT_BOLD),
-            CustomText(
-                text: characterViewModel.race.toString(), defaultStyle: TEXT),
-            CustomText(text: characterViewModel.roleLabel, defaultStyle: TEXT),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                    text: characterViewModel.name.toString(),
+                    defaultStyle: TEXT_BOLD),
+                CustomText(
+                    text: characterViewModel.race.toString(),
+                    defaultStyle: TEXT),
+                CustomText(
+                    text: characterViewModel.roleLabel, defaultStyle: TEXT),
+              ],
+            ),
+            SvgPicture.asset(
+              characterViewModel.roleImage,
+              height: 150,
+              width: 150,
+            )
           ],
         ),
       ),

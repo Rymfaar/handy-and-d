@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:handy_and_d/core/constants/margin.dart' as margin;
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import 'package:handy_and_d/widgets/character_card.dart';
 
@@ -24,13 +25,16 @@ class _HomeViewState extends State<HomeView> {
 
     return Scaffold(
       appBar: AppBar(),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return CharacterCard(
-            characterViewModel: listenViewModel.characters[index],
-          );
-        },
-        itemCount: listenViewModel.characters.length,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return CharacterCard(
+              characterViewModel: listenViewModel.characters[index],
+            );
+          },
+          itemCount: listenViewModel.characters.length,
+        ),
       ),
       backgroundColor: Colors.white,
     );

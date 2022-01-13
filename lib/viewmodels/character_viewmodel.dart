@@ -107,4 +107,8 @@ class CharacterViewModel {
         return const Color(Artificer.SECONDARY);
     }
   }
+
+  String get roleImage {
+    return "assets/images/im_" + roleLabel.toLowerCase() + ".svg";
+  }
 }
