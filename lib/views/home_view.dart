@@ -24,7 +24,9 @@ class _HomeViewState extends State<HomeView> {
     var listenViewModel = Provider.of<CharacterListViewModel>(context);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Handy&D"),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
         child: ListView.builder(

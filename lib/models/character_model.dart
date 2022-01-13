@@ -10,7 +10,7 @@ class CharacterModel {
       required this.ac});
 
   final String? name;
-  final Role role; // todo: change to Role enum (core/constants)
+  final Role role;
   final String? race;
   final int? xp;
   final int? maxHP;
