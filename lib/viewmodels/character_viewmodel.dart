@@ -11,9 +11,33 @@ class CharacterViewModel {
   String? get name => _characterModel.name;
   Role get role => _characterModel.role;
   String? get race => _characterModel.race;
-  int? get xp => _characterModel.xp;
+  int get xp => _characterModel.xp ?? (throw Exception("XP is null"));
   int? get maxHP => _characterModel.maxHP;
   int? get ac => _characterModel.ac;
+
+  int get level {
+    if (xp >= 190000) return 20;
+    if (xp >= 171000) return 19;
+    if (xp >= 153000) return 18;
+    if (xp >= 136000) return 17;
+    if (xp >= 120000) return 16;
+    if (xp >= 105000) return 15;
+    if (xp >= 91000) return 14;
+    if (xp >= 78000) return 13;
+    if (xp >= 66000) return 12;
+    if (xp >= 55000) return 11;
+    if (xp >= 45000) return 10;
+    if (xp >= 36000) return 9;
+    if (xp >= 28000) return 8;
+    if (xp >= 21000) return 7;
+    if (xp >= 15000) return 6;
+    if (xp >= 10000) return 5;
+    if (xp >= 6000) return 4;
+    if (xp >= 3000) return 3;
+    if (xp >= 1000) return 2;
+    if (xp >= 0) return 1;
+    return 0;
+  }
 
   String get roleLabel {
     switch (_characterModel.role) {
@@ -44,6 +68,10 @@ class CharacterViewModel {
       case Role.ARTIFICER:
         return "Artificer";
     }
+  }
+
+  String get roleImage {
+    return "assets/images/im_" + roleLabel.toLowerCase() + ".svg";
   }
 
   Color get primaryColor {
@@ -106,9 +134,5 @@ class CharacterViewModel {
       case Role.ARTIFICER:
         return const Color(Artificer.SECONDARY);
     }
-  }
-
-  String get roleImage {
-    return "assets/images/im_" + roleLabel.toLowerCase() + ".svg";
   }
 }

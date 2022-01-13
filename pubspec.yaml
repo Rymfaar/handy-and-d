@@ -79,6 +79,9 @@ flutter:
     - assets/images/im_warlock.svg
     - assets/images/im_wizard.svg
     - assets/images/im_artificer.svg
+    - assets/images/im_d20.svg
+    - assets/images/im_heart.svg
+    - assets/images/im_shield.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
