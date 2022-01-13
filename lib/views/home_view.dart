@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
+import 'package:handy_and_d/widgets/character_card.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -23,7 +24,15 @@ class _HomeViewState extends State<HomeView> {
 
     return Scaffold(
       appBar: AppBar(),
-      body: Center(child: Text(listenViewModel.characters.length.toString())),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          // return Text(listenViewModel.characters[index].name ?? "");
+          return CharacterCard(
+            characterViewModel: listenViewModel.characters[index],
+          );
+        },
+        itemCount: listenViewModel.characters.length,
+      ),
       backgroundColor: Colors.white,
     );
   }

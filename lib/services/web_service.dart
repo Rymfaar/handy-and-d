@@ -5,7 +5,7 @@ class WebService {
     List<Map<String, dynamic>> response = [
       {
         "name": "Archibald Kratan",
-        "role": "Paladin",
+        "role": 6,
         "race": "Dragonborn",
         "xp": 2125,
         "maxHP": 29,
@@ -13,7 +13,7 @@ class WebService {
       },
       {
         "name": "Chapchap",
-        "role": "Bard",
+        "role": 1,
         "race": "Kenku",
         "xp": 100,
         "maxHP": 14,

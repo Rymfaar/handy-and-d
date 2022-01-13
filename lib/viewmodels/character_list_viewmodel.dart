@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/core/constants/loading_status.dart';
+import 'package:handy_and_d/core/enums/loading_status.dart';
 import 'package:handy_and_d/models/character_model.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
 import 'package:handy_and_d/services/web_service.dart';

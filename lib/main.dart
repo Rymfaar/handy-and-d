@@ -4,11 +4,11 @@ import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import 'package:handy_and_d/views/home_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override

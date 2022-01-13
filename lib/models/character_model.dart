@@ -1,3 +1,5 @@
+import 'package:handy_and_d/core/enums/role.dart';
+
 class CharacterModel {
   CharacterModel(
       {required this.name,
@@ -8,7 +10,7 @@ class CharacterModel {
       required this.ac});
 
   final String? name;
-  final String? role; // todo: change to Role enum (core/constants)
+  final Role role; // todo: change to Role enum (core/constants)
   final String? race;
   final int? xp;
   final int? maxHP;
@@ -17,7 +19,7 @@ class CharacterModel {
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
     return CharacterModel(
       name: json["name"] ?? "",
-      role: json["role"] ?? "",
+      role: Role.values[json["role"]],
       race: json["race"] ?? "",
       xp: json["xp"] ?? 0,
       maxHP: json["maxHP"] ?? 0,
@@ -27,7 +29,7 @@ class CharacterModel {
 
   Map<String, dynamic> toJson() => {
         "name": name ?? "",
-        "role": role ?? "",
+        "role": role.index,
         "race": race ?? "",
         "xp": xp ?? 0,
         "maxHP": maxHP ?? 0,
