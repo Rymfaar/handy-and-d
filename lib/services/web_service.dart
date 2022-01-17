@@ -19,6 +19,30 @@ class WebService {
         "maxHP": 14,
         "ac": 10,
       },
+      {
+        "name": "Ku Shado",
+        "role": 8,
+        "race": "Kenku",
+        "xp": 100,
+        "maxHP": 12,
+        "ac": 11,
+      },
+      {
+        "name": "Grok",
+        "role": 2,
+        "race": "Tortle",
+        "xp": 3000,
+        "maxHP": 9,
+        "ac": 16,
+      },
+      {
+        "name": "Yun",
+        "role": 3,
+        "race": "Elve",
+        "xp": 1200,
+        "maxHP": 13,
+        "ac": 11,
+      },
     ];
 
     Iterable data = response;

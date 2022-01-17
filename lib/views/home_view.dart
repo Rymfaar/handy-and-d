@@ -29,13 +29,18 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
-        child: ListView.builder(
+        child: ListView.separated(
+          padding:
+              const EdgeInsets.fromLTRB(0, margin.MARGIN_M, 0, margin.MARGIN_L),
           itemBuilder: (context, index) {
             return CharacterCard(
               characterViewModel: listenViewModel.characters[index],
             );
           },
           itemCount: listenViewModel.characters.length,
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(height: margin.MARGIN_M);
+          },
         ),
       ),
       backgroundColor: Colors.white,
