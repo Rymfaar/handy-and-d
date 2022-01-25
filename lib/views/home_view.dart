@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:handy_and_d/core/constants/margin.dart' as margin;
+import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import 'package:handy_and_d/widgets/character_card.dart';
 
@@ -26,6 +27,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Handy&D"),
+        backgroundColor: const Color(Brand.PRIMARY),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
