@@ -4,6 +4,7 @@ import 'package:handy_and_d/core/constants/margin.dart' as margin;
 import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import 'package:handy_and_d/widgets/character_card.dart';
+import 'package:handy_and_d/views/character_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -20,6 +21,19 @@ class _HomeViewState extends State<HomeView> {
         .getCharacterHeaders();
   }
 
+  void _showCharacterView(context, character) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) {
+          return CharacterView(
+            characterViewModel: character,
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var listenViewModel = Provider.of<CharacterListViewModel>(context);
@@ -34,9 +48,15 @@ class _HomeViewState extends State<HomeView> {
         child: ListView.separated(
           padding:
               const EdgeInsets.fromLTRB(0, margin.MARGIN_M, 0, margin.MARGIN_L),
-          itemBuilder: (context, index) {
-            return CharacterCard(
-              characterViewModel: listenViewModel.characters[index],
+          itemBuilder: (_, index) {
+            var character = listenViewModel.characters[index];
+            return GestureDetector(
+              onTap: () {
+                _showCharacterView(context, character);
+              },
+              child: CharacterCard(
+                characterViewModel: character,
+              ),
             );
           },
           itemCount: listenViewModel.characters.length,
