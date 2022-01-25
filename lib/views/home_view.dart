@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:handy_and_d/core/constants/margin.dart' as margin;
 import 'package:handy_and_d/core/constants/color_style.dart';
+import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import 'package:handy_and_d/widgets/character_card.dart';
 import 'package:handy_and_d/views/character_view.dart';
@@ -49,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
           padding:
               const EdgeInsets.fromLTRB(0, margin.MARGIN_M, 0, margin.MARGIN_L),
           itemBuilder: (_, index) {
-            var character = listenViewModel.characters[index];
+            CharacterViewModel character = listenViewModel.characters[index];
             return GestureDetector(
               onTap: () {
                 _showCharacterView(context, character);
