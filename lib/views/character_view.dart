@@ -7,6 +7,7 @@ import 'package:handy_and_d/views/character_inventory_tab_view.dart';
 import 'package:handy_and_d/views/character_actions_tab_view.dart';
 import 'package:handy_and_d/views/character_notes_tab_view.dart';
 import 'package:handy_and_d/views/character_identity_tab_view.dart';
+import 'package:handy_and_d/widgets/glass_app_bar.dart';
 
 class CharacterView extends StatefulWidget {
   final CharacterViewModel characterViewModel;
@@ -27,11 +28,19 @@ class _CharacterViewState extends State<CharacterView> {
     const CharacterNotesTab(),
     const CharacterIdentityTab(),
   ];
+  final tabLabels = [
+    "Stats & skills",
+    "Inventory",
+    "Actions",
+    "Notes",
+    "Identity",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: tabs[index],
+      appBar: GlassAppBar(text: tabLabels[index]),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           backgroundColor: const Color(Contrast.WHITE02),
