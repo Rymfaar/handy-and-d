@@ -1,29 +1,47 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:handy_and_d/core/constants/color_style.dart';
+import 'package:handy_and_d/core/constants/text_style.dart';
+import 'package:handy_and_d/widgets/custom_text.dart';
 
-class GlassAppBar extends StatefulWidget {
-  const GlassAppBar({Key? key}) : super(key: key);
+class GlassAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String text;
+  final Color textColor;
+  final double height;
+  final double blurSigmaX;
+  final double blurSigmaY;
+
+  const GlassAppBar(
+      {required this.text,
+      this.textColor = const Color(Brand.SECONDARY),
+      this.height = 52.0,
+      this.blurSigmaX = 10,
+      this.blurSigmaY = 10,
+      Key? key})
+      : super(key: key);
 
   @override
-  _GlassAppBarState createState() => _GlassAppBarState();
-}
-
-class _GlassAppBarState extends State<GlassAppBar> {
-  @override
-  Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    return Positioned(
-      top: 0,
+  PreferredSize build(BuildContext context) {
+    return PreferredSize(
+      preferredSize: Size(double.infinity, height),
       child: ClipRect(
         child: BackdropFilter(
-          filter: ImageFilter.blur(
-            sigmaX: 10,
-            sigmaY: 10,
+          filter: ImageFilter.blur(sigmaX: blurSigmaX, sigmaY: blurSigmaY),
+          child: AppBar(
+            title: CustomText(
+              text: text,
+              textColor: textColor,
+              defaultStyle: HEADER,
+            ),
+            elevation: 0.0,
+            backgroundColor: Colors.white.withOpacity(0.2),
           ),
-          child: Container(), //TODO
         ),
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(height);
 }

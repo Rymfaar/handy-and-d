@@ -33,7 +33,7 @@ class CharacterCard extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      //? What is the text is too long
+                      //? What if the text is too long
                       CustomText(
                           text: characterViewModel.name.toString(),
                           defaultStyle: TEXT_BOLD),

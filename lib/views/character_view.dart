@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:handy_and_d/core/constants/color_style.dart';
+import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
 import 'package:handy_and_d/views/character_skills_tab_view.dart';
 import 'package:handy_and_d/views/character_inventory_tab_view.dart';
@@ -35,12 +36,7 @@ class _CharacterViewState extends State<CharacterView> {
         data: NavigationBarThemeData(
           backgroundColor: const Color(Contrast.WHITE02),
           indicatorColor: const Color(Brand.TERTIARY),
-          labelTextStyle: MaterialStateProperty.all(
-            const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          labelTextStyle: MaterialStateProperty.all(TAB),
         ),
         child: NavigationBar(
           // TODO: Change tab animations
