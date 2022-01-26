@@ -52,28 +52,9 @@ class _HomeViewState extends State<HomeView> {
         text: "Handy&D",
         textColor: Color(Brand.PRIMARY),
       ),
-      // appBar: PreferredSize(
-      //   preferredSize: const Size(double.infinity, 52.0),
-      //   child: ClipRect(
-      //     child: BackdropFilter(
-      //       filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-      //       child: AppBar(
-      //         title: const CustomText(
-      //           text: "Handy&D",
-      //           textColor: Color(Brand.PRIMARY),
-      //           defaultStyle: HEADER,
-      //         ),
-      //         elevation: 0.0,
-      //         backgroundColor: Colors.white.withOpacity(0.2),
-      //       ),
-      //     ),
-      //   ),
-      // ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
         child: ListView.separated(
-          // padding:
-          //     const EdgeInsets.fromLTRB(0, margin.MARGIN_M, 0, margin.MARGIN_L),
           itemBuilder: (_, index) {
             CharacterViewModel character = listenViewModel.characters[index];
             return GestureDetector(
