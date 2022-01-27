@@ -31,6 +31,7 @@ class GlassAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blurSigmaX, sigmaY: blurSigmaY),
           child: AppBar(
+            centerTitle: true,
             title: CustomText(
               text: text,
               textColor: textColor,
