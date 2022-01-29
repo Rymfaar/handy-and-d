@@ -9,30 +9,30 @@ class CharacterModel {
       required this.maxHP,
       required this.ac});
 
-  final String? name;
+  final String name;
   final Role role;
-  final String? race;
-  final int? xp;
-  final int? maxHP;
-  final int? ac;
+  final String race;
+  final int xp;
+  final int maxHP;
+  final int ac;
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
     return CharacterModel(
-      name: json["name"] ?? "",
+      name: json["name"],
       role: Role.values[json["role"]],
-      race: json["race"] ?? "",
-      xp: json["xp"] ?? 0,
-      maxHP: json["maxHP"] ?? 0,
-      ac: json["ac"] ?? 0,
+      race: json["race"],
+      xp: json["xp"],
+      maxHP: json["maxHP"],
+      ac: json["ac"],
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "name": name ?? "",
+        "name": name,
         "role": role.index,
-        "race": race ?? "",
-        "xp": xp ?? 0,
-        "maxHP": maxHP ?? 0,
-        "ac": ac ?? 0,
+        "race": race,
+        "xp": xp,
+        "maxHP": maxHP,
+        "ac": ac,
       };
 }

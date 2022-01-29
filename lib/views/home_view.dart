@@ -1,14 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:handy_and_d/core/constants/margin.dart' as margin;
-import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import 'package:handy_and_d/widgets/character_card.dart';
-import 'package:handy_and_d/widgets/custom_text.dart';
 import 'package:handy_and_d/widgets/glass_app_bar.dart';
 import 'package:handy_and_d/views/character_view.dart';
 

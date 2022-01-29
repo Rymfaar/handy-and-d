@@ -6,7 +6,7 @@ import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
 
 void main() {
   test(
-      "Given a character viewmodel When getting it's data Then getting the correct data",
+      "Given a CharacterViewModel - When getting it's data - Then getting the correct data",
       () async {
     final characterViewModel = CharacterViewModel(
       character: CharacterModel(
@@ -25,23 +25,6 @@ void main() {
     expect(characterViewModel.xp, 300);
     expect(characterViewModel.maxHP, 12);
     expect(characterViewModel.ac, 11);
-  });
-
-  test(
-      "Given a character viewmodel where xp is null When getting it's xp Then throws exception",
-      () async {
-    final characterViewModel = CharacterViewModel(
-      character: CharacterModel(
-        name: "Yun",
-        role: Role.DRUID,
-        race: "Elve",
-        xp: null,
-        maxHP: 12,
-        ac: 11,
-      ),
-    );
-
-    expect(() => characterViewModel.xp, throwsException);
   });
 
   test(

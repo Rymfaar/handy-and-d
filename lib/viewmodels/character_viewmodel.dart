@@ -8,12 +8,12 @@ class CharacterViewModel {
   CharacterViewModel({required CharacterModel character})
       : _characterModel = character;
 
-  String? get name => _characterModel.name;
+  String get name => _characterModel.name;
   Role get role => _characterModel.role;
-  String? get race => _characterModel.race;
-  int get xp => _characterModel.xp ?? (throw Exception("XP is null"));
-  int? get maxHP => _characterModel.maxHP;
-  int? get ac => _characterModel.ac;
+  String get race => _characterModel.race;
+  int get xp => _characterModel.xp;
+  int get maxHP => _characterModel.maxHP;
+  int get ac => _characterModel.ac;
 
   int get level {
     if (xp >= 190000) return 20;
