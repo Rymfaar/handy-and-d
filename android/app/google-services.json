@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "584581934693",
+    "project_id": "handy-and-d",
+    "storage_bucket": "handy-and-d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584581934693:android:fae6db23989b960f02e08c",
+        "android_client_info": {
+          "package_name": "com.example.handy_and_d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584581934693-asujt05429n5uoav4dvnm0rjhoqibnvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgwG-2Q0F-_hAXuOhuIOsZTGj6NRhbNWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584581934693-asujt05429n5uoav4dvnm0rjhoqibnvn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
