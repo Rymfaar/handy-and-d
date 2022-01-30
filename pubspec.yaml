@@ -42,6 +42,8 @@ dependencies:
   provider: ^6.0.2
   # svg images handling
   flutter_svg: ^1.0.1
+  # vuesax' icons
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:
@@ -89,7 +91,7 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 
-# fonts:
+fonts:
 #   - family: Futura
 #     fonts:
 #       - asset: assets/fonts/Futura-Book.ttf

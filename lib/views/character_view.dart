@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
@@ -58,23 +59,38 @@ class _CharacterViewState extends State<CharacterView> {
           },
           destinations: const [
             NavigationDestination(
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(
+                Iconsax.box_1,
+                color: Color(Brand.SECONDARY),
+              ),
               label: 'Skills',
             ),
             NavigationDestination(
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(
+                Iconsax.shapes,
+                color: Color(Brand.SECONDARY),
+              ),
               label: 'Inventory',
             ),
             NavigationDestination(
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(
+                Iconsax.flash_1,
+                color: Color(Brand.SECONDARY),
+              ),
               label: 'Actions',
             ),
             NavigationDestination(
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(
+                Iconsax.book_1,
+                color: Color(Brand.SECONDARY),
+              ),
               label: 'Notes',
             ),
             NavigationDestination(
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(
+                Iconsax.user_tag,
+                color: Color(Brand.SECONDARY),
+              ),
               label: 'Identity',
             ),
           ],
