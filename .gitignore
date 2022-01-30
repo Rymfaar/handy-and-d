@@ -69,3 +69,9 @@ doc/api/
 
 # test coverage
 coverage/
+
+# Firebase
+# Android firebase configuration file
+android/app/google-services.json
+# iOS firebase configuration file
+ios/GoogleService-Info.plist
