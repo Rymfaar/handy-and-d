@@ -44,6 +44,10 @@ dependencies:
   flutter_svg: ^1.0.1
   # vuesax' icons
   iconsax: ^0.0.8
+  # firebase file storage
+  firebase_storage: ^8.0.3
+  # firebase data storage
+  cloud_firestore: ^1.0.5
 
 dev_dependencies:
   flutter_test:

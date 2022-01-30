@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:handy_and_d/core/constants/color_style.dart';
 
 //TODO: Fonts
 
@@ -29,6 +30,7 @@ const TEXT = TextStyle(
 const TAB = TextStyle(
   fontSize: 12,
   // fontFamily: 'Futura',
-  fontWeight: FontWeight.w500,
+  fontWeight: FontWeight.w700,
   letterSpacing: -0.1,
+  color: Color(Brand.SECONDARY),
 );
