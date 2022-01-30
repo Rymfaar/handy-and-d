@@ -74,4 +74,4 @@ coverage/
 # Android firebase configuration file
 android/app/google-services.json
 # iOS firebase configuration file
-ios/GoogleService-Info.plist
+ios/Runner/GoogleService-Info.plist
