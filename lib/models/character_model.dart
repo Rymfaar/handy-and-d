@@ -27,6 +27,17 @@ class CharacterModel {
     );
   }
 
+  factory CharacterModel.fromFirestore(Map<String, dynamic> json) {
+    return CharacterModel(
+      name: json['name'],
+      role: Role.values[json['role']],
+      race: json['race'],
+      xp: json['xp'],
+      maxHP: json['max_hp'],
+      ac: json['ac'],
+    );
+  }
+
   Map<String, dynamic> toJson() => {
         "name": name,
         "role": role.index,
