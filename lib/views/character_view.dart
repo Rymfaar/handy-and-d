@@ -21,7 +21,7 @@ class CharacterView extends StatefulWidget {
 }
 
 class _CharacterViewState extends State<CharacterView> {
-  int index = 0;
+  int tabIndex = 0;
   final tabs = [
     const CharacterSkillsTab(),
     const CharacterInventoryTab(),
@@ -40,8 +40,8 @@ class _CharacterViewState extends State<CharacterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: tabs[index],
-      appBar: GlassAppBar(text: tabLabels[index]),
+      body: tabs[tabIndex],
+      appBar: GlassAppBar(text: tabLabels[tabIndex]),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           backgroundColor: const Color(Contrast.WHITE02),
@@ -51,10 +51,10 @@ class _CharacterViewState extends State<CharacterView> {
         child: NavigationBar(
           // TODO: Change tab animations
           height: 72,
-          selectedIndex: index,
+          selectedIndex: tabIndex,
           onDestinationSelected: (index) {
             setState(() {
-              this.index = index;
+              tabIndex = index;
             });
           },
           destinations: const [

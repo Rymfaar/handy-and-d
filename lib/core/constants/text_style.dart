@@ -27,6 +27,13 @@ const TEXT = TextStyle(
   letterSpacing: -0.1,
 );
 
+const CAPTION = TextStyle(
+  fontSize: 14.0,
+  // fontFamily: 'Futura',
+  fontWeight: FontWeight.w400,
+  letterSpacing: -0.1,
+);
+
 const TAB = TextStyle(
   fontSize: 12,
   // fontFamily: 'Futura',

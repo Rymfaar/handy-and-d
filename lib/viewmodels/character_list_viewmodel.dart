@@ -9,7 +9,6 @@ class CharacterListViewModel with ChangeNotifier {
   LoadingStatus loadingStatus = LoadingStatus.EMPTY;
 
   void getCharacterHeaders() async {
-    // List<CharacterModel> data = await WebService().fetchCharacters();
     List<CharacterModel> data = await FirestoreService().fetchCharacters();
     loadingStatus = LoadingStatus.SEARCHING;
     notifyListeners();
