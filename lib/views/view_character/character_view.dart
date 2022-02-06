@@ -3,18 +3,17 @@ import 'package:iconsax/iconsax.dart';
 import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
-import 'package:handy_and_d/views/character_skills_tab_view.dart';
-import 'package:handy_and_d/views/character_inventory_tab_view.dart';
-import 'package:handy_and_d/views/character_actions_tab_view.dart';
-import 'package:handy_and_d/views/character_notes_tab_view.dart';
-import 'package:handy_and_d/views/character_identity_tab_view.dart';
+import 'package:handy_and_d/views/view_character/character_skills_tab_view.dart';
+import 'package:handy_and_d/views/view_character/character_inventory_tab_view.dart';
+import 'package:handy_and_d/views/view_character/character_actions_tab_view.dart';
+import 'package:handy_and_d/views/view_character/character_notes_tab_view.dart';
+import 'package:handy_and_d/views/view_character/character_identity_tab_view.dart';
 import 'package:handy_and_d/widgets/glass_app_bar.dart';
 
 class CharacterView extends StatefulWidget {
   final CharacterViewModel characterViewModel;
 
-  const CharacterView({required this.characterViewModel, Key? key})
-      : super(key: key);
+  const CharacterView({required this.characterViewModel, Key? key}) : super(key: key);
 
   @override
   State<CharacterView> createState() => _CharacterViewState();
@@ -22,20 +21,23 @@ class CharacterView extends StatefulWidget {
 
 class _CharacterViewState extends State<CharacterView> {
   int tabIndex = 0;
-  final tabs = [
-    const CharacterSkillsTab(),
-    const CharacterInventoryTab(),
-    const CharacterActionsTab(),
-    const CharacterNotesTab(),
-    const CharacterIdentityTab(),
+  final List<String> tabLabels = [
+    'Stats & skills',
+    'Inventory',
+    'Actions',
+    'Notes',
+    'Identity',
   ];
-  final tabLabels = [
-    "Stats & skills",
-    "Inventory",
-    "Actions",
-    "Notes",
-    "Identity",
-  ];
+
+  List<StatelessWidget> get tabs => [
+        CharacterSkillsTab(
+          characterData: widget.characterViewModel,
+        ),
+        const CharacterInventoryTab(),
+        const CharacterActionsTab(),
+        const CharacterNotesTab(),
+        const CharacterIdentityTab(),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class _CharacterViewState extends State<CharacterView> {
           // TODO: Change tab animations
           height: 72,
           selectedIndex: tabIndex,
-          onDestinationSelected: (index) {
+          onDestinationSelected: (int index) {
             setState(() {
               tabIndex = index;
             });

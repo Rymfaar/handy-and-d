@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:handy_and_d/views/home/home_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
-import 'package:handy_and_d/views/home_view.dart';
+// import 'package:handy_and_d/views/home/home_view.dart';
 
 class HandyAndD extends StatelessWidget {
   const HandyAndD({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class HandyAndD extends StatelessWidget {
             create: (_) => CharacterListViewModel(),
           ),
         ],
-        child: const HomeView(),
+        child: const HomePage(),
       ),
     );
   }

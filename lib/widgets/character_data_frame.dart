@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/core/constants/margin.dart' as margin;
 import 'package:handy_and_d/core/constants/text_style.dart';
 import 'package:handy_and_d/widgets/custom_text.dart';
