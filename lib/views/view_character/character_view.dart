@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handy_and_d/views/view_character/character_controller.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:handy_and_d/core/constants/color_style.dart';
 import 'package:handy_and_d/core/constants/text_style.dart';
@@ -12,8 +13,15 @@ import 'package:handy_and_d/widgets/glass_app_bar.dart';
 
 class CharacterView extends StatefulWidget {
   final CharacterViewModel characterViewModel;
+  final BuildContext context;
+  final CharacterController controller;
 
-  const CharacterView({required this.characterViewModel, Key? key}) : super(key: key);
+  const CharacterView(
+    this.context, {
+    required this.controller,
+    required this.characterViewModel,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<CharacterView> createState() => _CharacterViewState();
@@ -31,6 +39,7 @@ class _CharacterViewState extends State<CharacterView> {
 
   List<StatelessWidget> get tabs => [
         CharacterSkillsTab(
+          controller: widget.controller,
           characterData: widget.characterViewModel,
         ),
         const CharacterInventoryTab(),

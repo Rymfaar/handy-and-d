@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:handy_and_d/models/character_model.dart';
 import 'package:handy_and_d/services/firestore_service.dart';
+import 'package:handy_and_d/views/view_character/character_controller.dart';
 import 'package:handy_and_d/views/view_character/character_view.dart';
 import 'package:handy_and_d/views/home/home_view.dart';
 
@@ -19,8 +20,8 @@ class HomeController extends State<HomePage> {
       context,
       MaterialPageRoute(
         builder: (_) {
-          return CharacterView(
-            characterViewModel: character,
+          return CharacterPage(
+            characterData: character,
           );
         },
       ),
