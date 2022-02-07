@@ -1,33 +1,38 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:handy_and_d/models/character_model.dart';
-import 'package:handy_and_d/models/user_model.dart';
+import '../models/character_model.dart';
+import '../models/user_model.dart';
 
 class FirestoreService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Future<UserModel> fetchUser(String uid) async {
-    final snapshot = await _db.collection('Users').doc('jWtp19r7g2b4wwMJ5yBi').get();
-    final data = Map<String, dynamic>.from(snapshot.data() ?? {});
+    final DocumentSnapshot<Map<String, dynamic>> snapshot =
+        await _db.collection('Users').doc('jWtp19r7g2b4wwMJ5yBi').get();
+    final Map<String, dynamic> data =
+        Map<String, dynamic>.from(snapshot.data() ?? <String, dynamic>{});
 
     return UserModel.fromFirestore(data);
   }
 
   Future<List<CharacterModel>> fetchCharacters() async {
     try {
-      final List<Map<String, dynamic>> characterData = [];
+      final List<Map<String, dynamic>> characterData = <Map<String, dynamic>>[];
 
       // Getting character_id from user data
-      var snapshot = await _db.collection('Users').doc('jWtp19r7g2b4wwMJ5yBi').get();
-      var data = Map<String, dynamic>.from(snapshot.data() ?? {});
-      final ids = List<String>.from(data['character_id']);
+      DocumentSnapshot<Map<String, dynamic>> snapshot =
+          await _db.collection('Users').doc('jWtp19r7g2b4wwMJ5yBi').get();
+      Map<String, dynamic> data = Map<String, dynamic>.from(snapshot.data() ?? <String, dynamic>{});
+      final List<String> ids = List<String>.from(data['character_id'] as List<dynamic>);
 
       // Getting each character's data
-      for (final id in ids) {
+      for (final String id in ids) {
         snapshot = await _db.collection('Characters').doc(id).get();
-        data = Map<String, dynamic>.from(snapshot.data() ?? {});
+        data = Map<String, dynamic>.from(snapshot.data() ?? <String, dynamic>{});
         characterData.add(data);
       }
-      return characterData.map((data) => CharacterModel.fromFirestore(data)).toList();
+      return characterData
+          .map((Map<String, dynamic> data) => CharacterModel.fromFirestore(data))
+          .toList();
     } catch (e) {
       // TODO error exception asbstract class (ask mathieu)
       rethrow;

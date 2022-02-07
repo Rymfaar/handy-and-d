@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
-import 'package:handy_and_d/views/view_character/character_view.dart';
+import '../../viewmodels/character_viewmodel.dart';
+import 'character_view.dart';
 
 class CharacterPage extends StatefulWidget {
-  final CharacterViewModel characterData;
-
   const CharacterPage({required this.characterData, Key? key}) : super(key: key);
+  
+  final CharacterViewModel characterData;
 
   @override
   CharacterController createState() => CharacterController();

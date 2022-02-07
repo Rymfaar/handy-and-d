@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/views/view_character/character_controller.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:handy_and_d/core/constants/color_style.dart';
-import 'package:handy_and_d/core/constants/text_style.dart';
-import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
-import 'package:handy_and_d/views/view_character/character_skills_tab_view.dart';
-import 'package:handy_and_d/views/view_character/character_inventory_tab_view.dart';
-import 'package:handy_and_d/views/view_character/character_actions_tab_view.dart';
-import 'package:handy_and_d/views/view_character/character_notes_tab_view.dart';
-import 'package:handy_and_d/views/view_character/character_identity_tab_view.dart';
-import 'package:handy_and_d/widgets/glass_app_bar.dart';
+
+import '../../core/constants/color_style.dart';
+import '../../core/constants/text_style.dart';
+import '../../viewmodels/character_viewmodel.dart';
+import '../../widgets/glass_app_bar.dart';
+import 'character_actions_tab_view.dart';
+import 'character_controller.dart';
+import 'character_identity_tab_view.dart';
+import 'character_inventory_tab_view.dart';
+import 'character_notes_tab_view.dart';
+import 'character_skills_tab_view.dart';
 
 class CharacterView extends StatefulWidget {
-  final CharacterViewModel characterViewModel;
-  final BuildContext context;
-  final CharacterController controller;
-
   const CharacterView(
     this.context, {
     required this.controller,
     required this.characterViewModel,
     Key? key,
   }) : super(key: key);
+
+  final CharacterViewModel characterViewModel;
+  final BuildContext context;
+  final CharacterController controller;
 
   @override
   State<CharacterView> createState() => _CharacterViewState();
@@ -68,7 +69,7 @@ class _CharacterViewState extends State<CharacterView> {
               tabIndex = index;
             });
           },
-          destinations: const [
+          destinations: const <NavigationDestination>[
             NavigationDestination(
               icon: Icon(
                 Iconsax.box_1,

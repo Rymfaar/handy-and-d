@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/models/character_model.dart';
-import 'package:handy_and_d/services/firestore_service.dart';
-import 'package:handy_and_d/views/view_character/character_controller.dart';
-import 'package:handy_and_d/views/view_character/character_view.dart';
-import 'package:handy_and_d/views/home/home_view.dart';
+
+import '../../models/character_model.dart';
+import '../../services/firestore_service.dart';
+import '../../viewmodels/character_viewmodel.dart';
+import '../view_character/character_controller.dart';
+import 'home_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,10 +16,10 @@ class HomePage extends StatefulWidget {
 class HomeController extends State<HomePage> {
   String? error;
 
-  void _showCharacterView(character) {
-    Navigator.push(
+  void _showCharacterView(CharacterViewModel character) {
+    Navigator.push<dynamic>(
       context,
-      MaterialPageRoute(
+      MaterialPageRoute<dynamic>(
         builder: (_) {
           return CharacterPage(
             characterData: character,
@@ -36,8 +37,10 @@ class HomeController extends State<HomePage> {
     }
   }
 
-  get showCharacterView => _showCharacterView;
-  get fetchCharacters => _fetchCharacters;
+  void Function(CharacterViewModel character) get showCharacterView
+    => _showCharacterView;
+  Future<List<CharacterModel>> Function() get fetchCharacters
+    => _fetchCharacters;
 
   @override
   Widget build(BuildContext context) {

@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/core/constants/margin.dart' as margin;
-import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
-import 'package:handy_and_d/views/view_character/character_controller.dart';
-import 'package:handy_and_d/widgets/character_header.dart';
-import 'package:handy_and_d/widgets/section_title.dart';
+
+import '../../core/constants/margin.dart' as margin;
+import '../../viewmodels/character_viewmodel.dart';
+import '../../widgets/character_header.dart';
+import '../../widgets/section_title.dart';
+import 'character_controller.dart';
 
 class CharacterSkillsTab extends StatelessWidget {
-  final CharacterViewModel characterData;
-  final CharacterController controller;
-
   const CharacterSkillsTab({
     required this.controller,
     required this.characterData,
     Key? key,
   }) : super(key: key);
 
+  final CharacterViewModel characterData;
+  final CharacterController controller;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
       child: Align(
-        alignment: Alignment.center,
         child: Column(
           children: <Widget>[
             CharacterHeader(characterData: characterData),
             const SizedBox(height: margin.MARGIN_L),
-            const SectionTitle("Stats"),
+            const SectionTitle('Stats'),
             const SizedBox(height: margin.MARGIN_L),
-            const SectionTitle("Skills"),
+            const SectionTitle('Skills'),
           ],
         ),
       ),

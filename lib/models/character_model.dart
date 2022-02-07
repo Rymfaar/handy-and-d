@@ -1,13 +1,36 @@
-import 'package:handy_and_d/core/enums/role.dart';
+import '../core/enums/role.dart';
 
 class CharacterModel {
-  CharacterModel(
-      {required this.name,
-      required this.role,
-      required this.race,
-      required this.xp,
-      required this.maxHP,
-      required this.ac});
+  CharacterModel({
+    required this.name,
+    required this.role,
+    required this.race,
+    required this.xp,
+    required this.maxHP,
+    required this.ac,
+  });
+
+  factory CharacterModel.fromJson(Map<String, dynamic> json) {
+    return CharacterModel(
+      name: json['name'] as String,
+      role: Role.values[json['role'] as int],
+      race: json['race'] as String,
+      xp: json['xp'] as int,
+      maxHP: json['maxHP'] as int,
+      ac: json['ac'] as int,
+    );
+  }
+
+  factory CharacterModel.fromFirestore(Map<String, dynamic> json) {
+    return CharacterModel(
+      name: json['name'] as String,
+      role: Role.values[json['role'] as int],
+      race: json['race'] as String,
+      xp: json['xp'] as int,
+      maxHP: json['max_hp'] as int,
+      ac: json['ac'] as int,
+    );
+  }
 
   final String name;
   final Role role;
@@ -16,34 +39,12 @@ class CharacterModel {
   final int maxHP;
   final int ac;
 
-  factory CharacterModel.fromJson(Map<String, dynamic> json) {
-    return CharacterModel(
-      name: json["name"],
-      role: Role.values[json["role"]],
-      race: json["race"],
-      xp: json["xp"],
-      maxHP: json["maxHP"],
-      ac: json["ac"],
-    );
-  }
-
-  factory CharacterModel.fromFirestore(Map<String, dynamic> json) {
-    return CharacterModel(
-      name: json['name'],
-      role: Role.values[json['role']],
-      race: json['race'],
-      xp: json['xp'],
-      maxHP: json['max_hp'],
-      ac: json['ac'],
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "name": name,
-        "role": role.index,
-        "race": race,
-        "xp": xp,
-        "maxHP": maxHP,
-        "ac": ac,
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'name': name,
+        'role': role.index,
+        'race': race,
+        'xp': xp,
+        'maxHP': maxHP,
+        'ac': ac,
       };
 }

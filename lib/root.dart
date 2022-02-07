@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/views/home/home_controller.dart';
-import 'package:provider/provider.dart';
-import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
-// import 'package:handy_and_d/views/home/home_view.dart';
+
+import 'views/home/home_controller.dart';
 
 class HandyAndD extends StatelessWidget {
   const HandyAndD({Key? key}) : super(key: key);
@@ -15,14 +13,7 @@ class HandyAndD extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (_) => CharacterListViewModel(),
-          ),
-        ],
-        child: const HomePage(),
-      ),
+      home: const HomePage(),
     );
   }
 }
