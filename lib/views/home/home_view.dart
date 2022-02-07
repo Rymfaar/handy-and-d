@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
           future: controller.fetchCharacters(),
           builder: (BuildContext context, AsyncSnapshot<List<CharacterModel>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              // TODO Loading widget -> Create a custom widget
+              // TODO(rymfire): Loading widget -> Create a custom widget
               return Container();
             } else if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
               return ListView.separated(
@@ -55,7 +55,7 @@ class HomeView extends StatelessWidget {
                 },
               );
             } else if (snapshot.hasError && snapshot.connectionState == ConnectionState.done) {
-              // TODO Show error widget
+              // TODO(rymfire): Show error widget
               return Container();
             } else {
               //?
@@ -65,7 +65,7 @@ class HomeView extends StatelessWidget {
         ),
       ),
       floatingActionButton: const FloatingActionButton(
-        onPressed: null, // TODO create new character
+        onPressed: null, // TODO(rymfire): create new character
         backgroundColor: Color(Brand.PRIMARY),
         child: Icon(
           Icons.add,

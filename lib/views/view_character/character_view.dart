@@ -30,7 +30,7 @@ class CharacterView extends StatefulWidget {
 
 class _CharacterViewState extends State<CharacterView> {
   int tabIndex = 0;
-  final List<String> tabLabels = [
+  final List<String> tabLabels = <String>[
     'Stats & skills',
     'Inventory',
     'Actions',
@@ -38,7 +38,7 @@ class _CharacterViewState extends State<CharacterView> {
     'Identity',
   ];
 
-  List<StatelessWidget> get tabs => [
+  List<StatelessWidget> get tabs => <StatelessWidget>[
         CharacterSkillsTab(
           controller: widget.controller,
           characterData: widget.characterViewModel,
@@ -61,7 +61,7 @@ class _CharacterViewState extends State<CharacterView> {
           labelTextStyle: MaterialStateProperty.all(TAB),
         ),
         child: NavigationBar(
-          // TODO: Change tab animations
+          // TODO(rymfire): Change tab animations
           height: 72,
           selectedIndex: tabIndex,
           onDestinationSelected: (int index) {

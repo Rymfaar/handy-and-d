@@ -1,27 +1,27 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/core/constants/color_style.dart';
-import 'package:handy_and_d/core/constants/text_style.dart';
-import 'package:handy_and_d/widgets/custom_text.dart';
+import '../core/constants/color_style.dart';
+import '../core/constants/text_style.dart';
+import 'custom_text.dart';
 
 class GlassAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const GlassAppBar({
+    required this.text,
+    this.textColor = const Color(Brand.SECONDARY),
+    this.itemsColor = const Color(Brand.SECONDARY),
+    this.height = 52.0,
+    this.blurSigmaX = 10,
+    this.blurSigmaY = 10,
+    Key? key,
+  }) : super(key: key);
+
   final String text;
   final Color textColor;
   final Color itemsColor;
   final double height;
   final double blurSigmaX;
   final double blurSigmaY;
-
-  const GlassAppBar(
-      {required this.text,
-      this.textColor = const Color(Brand.SECONDARY),
-      this.itemsColor = const Color(Brand.SECONDARY),
-      this.height = 52.0,
-      this.blurSigmaX = 10,
-      this.blurSigmaY = 10,
-      Key? key})
-      : super(key: key);
 
   @override
   PreferredSize build(BuildContext context) {

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:handy_and_d/core/constants/margin.dart' as margin;
-import 'package:handy_and_d/core/constants/text_style.dart';
-import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
-import 'package:handy_and_d/widgets/custom_text.dart';
+import '../core/constants/margin.dart' as margin;
+import '../core/constants/text_style.dart';
+import '../viewmodels/character_viewmodel.dart';
+import 'custom_text.dart';
 
 class CharacterCard extends StatelessWidget {
-  final CharacterViewModel characterViewModel;
+  const CharacterCard({
+    required this.characterViewModel,
+    Key? key,
+  }) : super(key: key);
 
-  const CharacterCard({required this.characterViewModel, Key? key})
-      : super(key: key);
+  final CharacterViewModel characterViewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +25,25 @@ class CharacterCard extends StatelessWidget {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(margin.MARGIN_M),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       //? What if the text is too long
                       CustomText(
-                          characterViewModel.name.toString(),
+                          characterViewModel.name,
                           defaultStyle: TEXT_BOLD),
                       const SizedBox(
                         height: 4.0,
                       ),
                       CustomText(
-                          characterViewModel.race.toString(),
+                          characterViewModel.race,
                           defaultStyle: TEXT),
                       const SizedBox(
                         height: 4.0,
@@ -52,10 +54,10 @@ class CharacterCard extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: [
-                      Stack(alignment: Alignment.center, children: [
+                    children: <Widget>[
+                      Stack(alignment: Alignment.center, children: <Widget>[
                         SvgPicture.asset(
-                          "assets/images/im_d20.svg",
+                          'assets/images/im_d20.svg',
                           height: 40,
                           width: 40,
                         ),
@@ -66,9 +68,9 @@ class CharacterCard extends StatelessWidget {
                       const SizedBox(
                         width: 10.0,
                       ),
-                      Stack(alignment: Alignment.center, children: [
+                      Stack(alignment: Alignment.center, children: <Widget>[
                         SvgPicture.asset(
-                          "assets/images/im_heart.svg",
+                          'assets/images/im_heart.svg',
                           height: 40,
                           width: 40,
                         ),
@@ -79,9 +81,9 @@ class CharacterCard extends StatelessWidget {
                       const SizedBox(
                         width: 10.0,
                       ),
-                      Stack(alignment: Alignment.center, children: [
+                      Stack(alignment: Alignment.center, children: <Widget>[
                         SvgPicture.asset(
-                          "assets/images/im_shield.svg",
+                          'assets/images/im_shield.svg',
                           height: 40,
                           width: 40,
                         ),
@@ -95,7 +97,7 @@ class CharacterCard extends StatelessWidget {
               ),
             ),
             RotationTransition(
-              turns: const AlwaysStoppedAnimation(15 / 360),
+              turns: const AlwaysStoppedAnimation<double>(15 / 360),
               // turns: const AlwaysStoppedAnimation(0),
               child: SvgPicture.asset(
                 characterViewModel.roleImage,

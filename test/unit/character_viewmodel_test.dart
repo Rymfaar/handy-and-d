@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:handy_and_d/core/enums/role.dart';
 import 'package:handy_and_d/models/character_model.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
@@ -8,20 +8,20 @@ void main() {
   test(
       "Given a CharacterViewModel - When getting it's data - Then getting the correct data",
       () async {
-    final characterViewModel = CharacterViewModel(
+    final CharacterViewModel characterViewModel = CharacterViewModel(
       character: CharacterModel(
-        name: "Yun",
+        name: 'Yun',
         role: Role.DRUID,
-        race: "Elve",
+        race: 'Elve',
         xp: 300,
         maxHP: 12,
         ac: 11,
       ),
     );
 
-    expect(characterViewModel.name, "Yun");
+    expect(characterViewModel.name, 'Yun');
     expect(characterViewModel.role, Role.DRUID);
-    expect(characterViewModel.race, "Elve");
+    expect(characterViewModel.race, 'Elve');
     expect(characterViewModel.xp, 300);
     expect(characterViewModel.maxHP, 12);
     expect(characterViewModel.ac, 11);
@@ -30,7 +30,7 @@ void main() {
   test(
       "Given a character viewmodel where xp is set When getting character's level Then returns correct level",
       () async {
-    final _xpSteps = [
+    final List<int> _xpSteps = <int>[
       190000,
       171000,
       153000,
@@ -54,12 +54,12 @@ void main() {
     ];
     int _level = 20;
 
-    for (var step in _xpSteps) {
-      final characterViewModel = CharacterViewModel(
+    for (final int step in _xpSteps) {
+      final CharacterViewModel characterViewModel = CharacterViewModel(
         character: CharacterModel(
-          name: "Yun",
+          name: 'Yun',
           role: Role.DRUID,
-          race: "Elve",
+          race: 'Elve',
           xp: step,
           maxHP: 12,
           ac: 11,
@@ -73,7 +73,7 @@ void main() {
   test(
       "Given a character viewmodel where role is defined When getting it's role label / colors Then gives the correct data",
       () async {
-    final _roles = [
+    final List<Role> _roles = <Role>[
       Role.BARBARIAN,
       Role.BARD,
       Role.CLERIC,
@@ -88,103 +88,103 @@ void main() {
       Role.WIZARD,
       Role.ARTIFICER,
     ];
-    final _results = [
-      {
-        "roleLabel": "Barbarian",
-        "roleImage": "assets/images/im_barbarian.svg",
-        "primaryColor": const Color(Barbarian.PRIMARY),
-        "secondaryColor": const Color(Barbarian.SECONDARY),
+    final List<Map<String, Object>> _results = <Map<String, Object>>[
+      <String, Object>{
+        'roleLabel': 'Barbarian',
+        'roleImage': 'assets/images/im_barbarian.svg',
+        'primaryColor': const Color(Barbarian.PRIMARY),
+        'secondaryColor': const Color(Barbarian.SECONDARY),
       },
-      {
-        "roleLabel": "Bard",
-        "roleImage": "assets/images/im_bard.svg",
-        "primaryColor": const Color(Bard.PRIMARY),
-        "secondaryColor": const Color(Bard.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Bard',
+        'roleImage': 'assets/images/im_bard.svg',
+        'primaryColor': const Color(Bard.PRIMARY),
+        'secondaryColor': const Color(Bard.SECONDARY),
       },
-      {
-        "roleLabel": "Cleric",
-        "roleImage": "assets/images/im_cleric.svg",
-        "primaryColor": const Color(Cleric.PRIMARY),
-        "secondaryColor": const Color(Cleric.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Cleric',
+        'roleImage': 'assets/images/im_cleric.svg',
+        'primaryColor': const Color(Cleric.PRIMARY),
+        'secondaryColor': const Color(Cleric.SECONDARY),
       },
-      {
-        "roleLabel": "Druid",
-        "roleImage": "assets/images/im_druid.svg",
-        "primaryColor": const Color(Druid.PRIMARY),
-        "secondaryColor": const Color(Druid.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Druid',
+        'roleImage': 'assets/images/im_druid.svg',
+        'primaryColor': const Color(Druid.PRIMARY),
+        'secondaryColor': const Color(Druid.SECONDARY),
       },
-      {
-        "roleLabel": "Fighter",
-        "roleImage": "assets/images/im_fighter.svg",
-        "primaryColor": const Color(Fighter.PRIMARY),
-        "secondaryColor": const Color(Fighter.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Fighter',
+        'roleImage': 'assets/images/im_fighter.svg',
+        'primaryColor': const Color(Fighter.PRIMARY),
+        'secondaryColor': const Color(Fighter.SECONDARY),
       },
-      {
-        "roleLabel": "Monk",
-        "roleImage": "assets/images/im_monk.svg",
-        "primaryColor": const Color(Monk.PRIMARY),
-        "secondaryColor": const Color(Monk.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Monk',
+        'roleImage': 'assets/images/im_monk.svg',
+        'primaryColor': const Color(Monk.PRIMARY),
+        'secondaryColor': const Color(Monk.SECONDARY),
       },
-      {
-        "roleLabel": "Paladin",
-        "roleImage": "assets/images/im_paladin.svg",
-        "primaryColor": const Color(Paladin.PRIMARY),
-        "secondaryColor": const Color(Paladin.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Paladin',
+        'roleImage': 'assets/images/im_paladin.svg',
+        'primaryColor': const Color(Paladin.PRIMARY),
+        'secondaryColor': const Color(Paladin.SECONDARY),
       },
-      {
-        "roleLabel": "Ranger",
-        "roleImage": "assets/images/im_ranger.svg",
-        "primaryColor": const Color(Ranger.PRIMARY),
-        "secondaryColor": const Color(Ranger.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Ranger',
+        'roleImage': 'assets/images/im_ranger.svg',
+        'primaryColor': const Color(Ranger.PRIMARY),
+        'secondaryColor': const Color(Ranger.SECONDARY),
       },
-      {
-        "roleLabel": "Rogue",
-        "roleImage": "assets/images/im_rogue.svg",
-        "primaryColor": const Color(Rogue.PRIMARY),
-        "secondaryColor": const Color(Rogue.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Rogue',
+        'roleImage': 'assets/images/im_rogue.svg',
+        'primaryColor': const Color(Rogue.PRIMARY),
+        'secondaryColor': const Color(Rogue.SECONDARY),
       },
-      {
-        "roleLabel": "Sorcerer",
-        "roleImage": "assets/images/im_sorcerer.svg",
-        "primaryColor": const Color(Sorcerer.PRIMARY),
-        "secondaryColor": const Color(Sorcerer.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Sorcerer',
+        'roleImage': 'assets/images/im_sorcerer.svg',
+        'primaryColor': const Color(Sorcerer.PRIMARY),
+        'secondaryColor': const Color(Sorcerer.SECONDARY),
       },
-      {
-        "roleLabel": "Warlock",
-        "roleImage": "assets/images/im_warlock.svg",
-        "primaryColor": const Color(Warlock.PRIMARY),
-        "secondaryColor": const Color(Warlock.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Warlock',
+        'roleImage': 'assets/images/im_warlock.svg',
+        'primaryColor': const Color(Warlock.PRIMARY),
+        'secondaryColor': const Color(Warlock.SECONDARY),
       },
-      {
-        "roleLabel": "Wizard",
-        "roleImage": "assets/images/im_wizard.svg",
-        "primaryColor": const Color(Wizard.PRIMARY),
-        "secondaryColor": const Color(Wizard.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Wizard',
+        'roleImage': 'assets/images/im_wizard.svg',
+        'primaryColor': const Color(Wizard.PRIMARY),
+        'secondaryColor': const Color(Wizard.SECONDARY),
       },
-      {
-        "roleLabel": "Artificer",
-        "roleImage": "assets/images/im_artificer.svg",
-        "primaryColor": const Color(Artificer.PRIMARY),
-        "secondaryColor": const Color(Artificer.SECONDARY),
+      <String, Object>{
+        'roleLabel': 'Artificer',
+        'roleImage': 'assets/images/im_artificer.svg',
+        'primaryColor': const Color(Artificer.PRIMARY),
+        'secondaryColor': const Color(Artificer.SECONDARY),
       },
     ];
 
-    _roles.asMap().forEach((idx, role) {
-      final characterViewModel = CharacterViewModel(
+    _roles.asMap().forEach((int idx, Role role) {
+      final CharacterViewModel characterViewModel = CharacterViewModel(
         character: CharacterModel(
-          name: "Grommash",
+          name: 'Grommash',
           role: role,
-          race: "Orc",
+          race: 'Orc',
           xp: 0,
           maxHP: 10,
           ac: 10,
         ),
       );
-      expect(characterViewModel.roleLabel, _results[idx]["roleLabel"]);
-      expect(characterViewModel.roleImage, _results[idx]["roleImage"]);
-      expect(characterViewModel.primaryColor, _results[idx]["primaryColor"]);
+      expect(characterViewModel.roleLabel, _results[idx]['roleLabel']);
+      expect(characterViewModel.roleImage, _results[idx]['roleImage']);
+      expect(characterViewModel.primaryColor, _results[idx]['primaryColor']);
       expect(
-          characterViewModel.secondaryColor, _results[idx]["secondaryColor"]);
+          characterViewModel.secondaryColor, _results[idx]['secondaryColor']);
     });
   });
 }

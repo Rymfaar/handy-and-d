@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'color_style.dart';
 
-//TODO: Fonts
+// TODO(rymfire): fonts
 
 const TextStyle HEADER = TextStyle(
   fontSize: 18,

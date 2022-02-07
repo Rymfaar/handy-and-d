@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:handy_and_d/core/constants/color_style.dart';
-import 'package:handy_and_d/core/constants/text_style.dart';
-import 'package:handy_and_d/widgets/custom_text.dart';
+import '../core/constants/color_style.dart';
+import '../core/constants/text_style.dart';
+import 'custom_text.dart';
 
 class SectionTitle extends StatelessWidget {
-  final String label;
-
   const SectionTitle(this.label, {Key? key}) : super(key: key);
+
+  final String label;
 
   @override
   Widget build(BuildContext context) {

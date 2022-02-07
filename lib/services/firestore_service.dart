@@ -34,7 +34,7 @@ class FirestoreService {
           .map((Map<String, dynamic> data) => CharacterModel.fromFirestore(data))
           .toList();
     } catch (e) {
-      // TODO error exception asbstract class (ask mathieu)
+      // TODO(rymfire): error exception asbstract class (ask mathieu)
       rethrow;
     }
   }
