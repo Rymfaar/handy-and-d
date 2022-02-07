@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/color_style.dart';
-// import 'package:handy_and_d/services/firestore_service.dart';
-// import 'package:provider/provider.dart';
 import '../../core/constants/margin.dart' as margin;
 import '../../models/character_model.dart';
 import '../../viewmodels/character_viewmodel.dart';
-// import 'package:handy_and_d/viewmodels/character_list_viewmodel.dart';
 import '../../widgets/character_card.dart';
 import '../../widgets/glass_app_bar.dart';
 import 'home_controller.dart';
-// import 'package:handy_and_d/views/character_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView(this.context, {required this.controller, Key? key}) : super(key: key);
@@ -37,7 +33,6 @@ class HomeView extends StatelessWidget {
             } else if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
               return ListView.separated(
                 itemBuilder: (_, int index) {
-                  // CharacterViewModel character = listenViewModel.characters[index];
                   final CharacterViewModel character =
                       CharacterViewModel(character: snapshot.data![index]);
                   return GestureDetector(
@@ -58,7 +53,7 @@ class HomeView extends StatelessWidget {
               // TODO(rymfire): Show error widget
               return Container();
             } else {
-              //?
+              // ?
               return Container();
             }
           },

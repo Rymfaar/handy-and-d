@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:handy_and_d/core/enums/role.dart';
+import 'package:handy_and_d/core/constants/role.dart';
 import 'package:handy_and_d/models/character_model.dart';
 import 'package:handy_and_d/viewmodels/character_viewmodel.dart';
 
@@ -28,7 +28,7 @@ void main() {
   });
 
   test(
-      "Given a character viewmodel where xp is set When getting character's level Then returns correct level",
+      "Given a character viewmodel where xp is set When getting character's level and proficiency bonus Then returns correct level and bonus",
       () async {
     final List<int> _xpSteps = <int>[
       190000,
@@ -66,6 +66,17 @@ void main() {
         ),
       );
       expect(characterViewModel.level, _level);
+      if (characterViewModel.level >= 17) {
+        expect(characterViewModel.proficiencyBonus, 6);
+      } else if (characterViewModel.level >= 13) {
+        expect(characterViewModel.proficiencyBonus, 5);
+      } else if (characterViewModel.level >= 9) {
+        expect(characterViewModel.proficiencyBonus, 4);
+      } else if (characterViewModel.level >= 5) {
+        expect(characterViewModel.proficiencyBonus, 3);
+      } else {
+        expect(characterViewModel.proficiencyBonus, 2);
+      }
       _level -= 1;
     }
   });

@@ -15,7 +15,7 @@ class CharacterHeader extends StatelessWidget {
     required this.characterData,
     Key? key,
   }) : super(key: key);
-  
+
   final CharacterViewModel characterData;
 
   @override
@@ -23,7 +23,8 @@ class CharacterHeader extends StatelessWidget {
     return Column(
       children: <Widget>[
         const SizedBox(height: margin.MARGIN_L),
-        const CircleAvatar(backgroundColor: Color(Brand.SECONDARY), radius: 80.0),
+        const CircleAvatar(
+            backgroundColor: Color(Brand.SECONDARY), radius: 80.0),
         const SizedBox(height: margin.MARGIN_L),
         CustomText(characterData.name, defaultStyle: HEADER),
         Row(
@@ -42,7 +43,8 @@ class CharacterHeader extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CharacterHeaderLevel(level: characterData.level, xp: characterData.xp),
+            CharacterHeaderLevel(
+                level: characterData.level, xp: characterData.xp),
             const SizedBox(width: margin.MARGIN_M),
             CharacterHeaderHealth(currentHP: 15, maxHP: characterData.maxHP),
             const SizedBox(width: margin.MARGIN_M),
@@ -52,25 +54,28 @@ class CharacterHeader extends StatelessWidget {
         const SizedBox(height: margin.MARGIN_L),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            CharacterDataFrame(
+          children: <Widget>[
+            // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
+            const CharacterDataFrame(
               label: 'Hit Dice',
               value: '1d10',
             ),
-            SizedBox(width: margin.MARGIN_M),
-            CharacterDataFrame(
+            const SizedBox(width: margin.MARGIN_M),
+            // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
+            const CharacterDataFrame(
               label: 'Initiative',
               value: '+2',
             ),
-            SizedBox(width: margin.MARGIN_M),
-            CharacterDataFrame(
+            const SizedBox(width: margin.MARGIN_M),
+            // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
+            const CharacterDataFrame(
               label: 'Speed',
               value: '30 feet',
             ),
-            SizedBox(width: margin.MARGIN_M),
+            const SizedBox(width: margin.MARGIN_M),
             CharacterDataFrame(
               label: 'Proficiency',
-              value: '+2',
+              value: '+${characterData.proficiencyBonus}',
             ),
           ],
         ),

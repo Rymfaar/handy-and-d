@@ -1,4 +1,4 @@
-import '../core/enums/role.dart';
+import '../core/constants/role.dart';
 
 class CharacterModel {
   CharacterModel({

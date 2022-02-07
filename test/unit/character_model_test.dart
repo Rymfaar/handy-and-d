@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:handy_and_d/core/enums/role.dart';
+import 'package:handy_and_d/core/constants/role.dart';
 import 'package:handy_and_d/models/character_model.dart';
 
 void main() {
