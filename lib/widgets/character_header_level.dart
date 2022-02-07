@@ -22,9 +22,9 @@ class CharacterHeaderLevel extends StatelessWidget {
         ),
         Column(
           children: [
-            CustomText(text: level.toString(), defaultStyle: TEXT_BOLD),
+            CustomText(level.toString(), defaultStyle: TEXT_BOLD),
             CustomText(
-                text: "(" + xp.toString() + " XP)", defaultStyle: CAPTION)
+                "(" + xp.toString() + " XP)", defaultStyle: CAPTION)
           ],
         )
       ],

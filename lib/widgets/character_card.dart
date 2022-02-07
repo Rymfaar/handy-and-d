@@ -35,19 +35,19 @@ class CharacterCard extends StatelessWidget {
                     children: [
                       //? What if the text is too long
                       CustomText(
-                          text: characterViewModel.name.toString(),
+                          characterViewModel.name.toString(),
                           defaultStyle: TEXT_BOLD),
                       const SizedBox(
                         height: 4.0,
                       ),
                       CustomText(
-                          text: characterViewModel.race.toString(),
+                          characterViewModel.race.toString(),
                           defaultStyle: TEXT),
                       const SizedBox(
                         height: 4.0,
                       ),
                       CustomText(
-                          text: characterViewModel.roleLabel,
+                          characterViewModel.roleLabel,
                           defaultStyle: TEXT),
                     ],
                   ),
@@ -60,7 +60,7 @@ class CharacterCard extends StatelessWidget {
                           width: 40,
                         ),
                         CustomText(
-                            text: characterViewModel.level.toString(),
+                            characterViewModel.level.toString(),
                             defaultStyle: TEXT_BOLD)
                       ]),
                       const SizedBox(
@@ -73,7 +73,7 @@ class CharacterCard extends StatelessWidget {
                           width: 40,
                         ),
                         CustomText(
-                            text: characterViewModel.maxHP.toString(),
+                            characterViewModel.maxHP.toString(),
                             defaultStyle: TEXT_BOLD)
                       ]),
                       const SizedBox(
@@ -86,7 +86,7 @@ class CharacterCard extends StatelessWidget {
                           width: 40,
                         ),
                         CustomText(
-                            text: characterViewModel.ac.toString(),
+                            characterViewModel.ac.toString(),
                             defaultStyle: TEXT_BOLD)
                       ]),
                     ],

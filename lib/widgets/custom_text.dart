@@ -7,10 +7,11 @@ class CustomText extends StatelessWidget {
   //? Fonts
 
   const CustomText(
-      {required this.text,
-      required this.defaultStyle,
-      this.textColor = Colors.black,
-      Key? key})
+    this.text, {
+    required this.defaultStyle,
+    this.textColor = Colors.black,
+    Key? key,
+  })
       : super(key: key);
 
   @override

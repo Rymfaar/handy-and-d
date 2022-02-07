@@ -6,14 +6,14 @@ import 'package:handy_and_d/widgets/custom_text.dart';
 class CharacterDataFrame extends StatelessWidget {
   final String label;
   final String value;
-  final int roleColor;
+  final int? roleColor;
   final bool proficiency;
   //todo: tap frame
 
   const CharacterDataFrame({
     required this.label,
     required this.value,
-    required this.roleColor,
+    this.roleColor,
     this.proficiency = false,
     Key? key,
   }) : super(key: key);
@@ -24,18 +24,18 @@ class CharacterDataFrame extends StatelessWidget {
       width: 75.0,
       child: Column(
         children: [
-          CustomText(text: label, defaultStyle: CAPTION),
+          CustomText(label, defaultStyle: CAPTION),
           const SizedBox(height: margin.MARGIN_XS),
           Stack(
             alignment: Alignment.center,
             children: [
-              proficiency == true
+              proficiency == true && roleColor != null
                   ? CircleAvatar(
-                      backgroundColor: Color(roleColor),
+                      backgroundColor: Color(roleColor!),
                       radius: 12.0,
                     )
                   : Container(),
-              CustomText(text: value, defaultStyle: TEXT_BOLD),
+              CustomText(value, defaultStyle: TEXT_BOLD),
             ],
           ),
         ],

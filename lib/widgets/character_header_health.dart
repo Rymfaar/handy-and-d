@@ -23,8 +23,8 @@ class CharacterHeaderHealth extends StatelessWidget {
         ),
         Column(
           children: [
-            CustomText(text: currentHP.toString(), defaultStyle: TEXT_BOLD),
-            CustomText(text: maxHP.toString(), defaultStyle: CAPTION)
+            CustomText(currentHP.toString(), defaultStyle: TEXT_BOLD),
+            CustomText(maxHP.toString(), defaultStyle: CAPTION)
           ],
         ),
       ],

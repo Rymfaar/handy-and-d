@@ -18,7 +18,7 @@ class CharacterHeaderAC extends StatelessWidget {
           height: 80.0,
           width: 80.0,
         ),
-        CustomText(text: ac.toString(), defaultStyle: TEXT_BOLD),
+        CustomText(ac.toString(), defaultStyle: TEXT_BOLD),
       ],
     );
   }

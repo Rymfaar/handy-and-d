@@ -33,7 +33,7 @@ class GlassAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: AppBar(
             centerTitle: true,
             title: CustomText(
-              text: text,
+              text,
               textColor: textColor,
               defaultStyle: HEADER,
             ),
