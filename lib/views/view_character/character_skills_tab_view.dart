@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/margin.dart' as margin;
+import '../../core/constants/proficiency.dart';
 import '../../viewmodels/character_viewmodel.dart';
 import '../../widgets/character_data_frame.dart';
 import '../../widgets/character_header.dart';
@@ -44,6 +45,7 @@ class CharacterSkillsTab extends StatelessWidget {
   }
 
   Column _skillFrames() {
+    print(characterData.proficiencies);
     return Column(
       children: <Widget>[
         Row(
@@ -51,7 +53,11 @@ class CharacterSkillsTab extends StatelessWidget {
           children: <CharacterDataFrame>[
             CharacterDataFrame(
               label: 'Acrobatics',
-              value: '${characterData.acrobatics}',
+              value:
+                  '${characterData.proficiencies.contains(Proficiency.ACROBATICS) ? characterData.acrobatics + characterData.proficiencyBonus : characterData.acrobatics}',
+              proficiency:
+                  characterData.proficiencies.contains(Proficiency.ACROBATICS),
+              roleColor: characterData.secondaryColor,
             ),
             CharacterDataFrame(
               label: 'Animal Handling',

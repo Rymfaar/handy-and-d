@@ -1,3 +1,4 @@
+import '../core/constants/proficiency.dart';
 import '../core/constants/role.dart';
 
 class CharacterModel {
@@ -5,10 +6,11 @@ class CharacterModel {
     required this.name,
     required this.role,
     required this.race,
-    required this.abilities,
     required this.xp,
     required this.maxHP,
     required this.ac,
+    required this.abilities,
+    this.proficiencies = const <Proficiency>[],
   });
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
@@ -30,6 +32,9 @@ class CharacterModel {
         'wis': abilities['wis'] as int,
         'cha': abilities['cha'] as int,
       },
+      proficiencies: List<int>.from(json['proficiencies'] as Iterable<dynamic>)
+          .map((int proficiency) => Proficiency.values[proficiency])
+          .toList(),
     );
   }
 
@@ -52,6 +57,9 @@ class CharacterModel {
         'wis': abilities['wis'] as int,
         'cha': abilities['cha'] as int,
       },
+      proficiencies: List<int>.from(json['proficiencies'] as Iterable<dynamic>)
+          .map((int proficiency) => Proficiency.values[proficiency])
+          .toList(),
     );
   }
 
@@ -62,6 +70,7 @@ class CharacterModel {
   final int xp;
   final int maxHP;
   final int ac;
+  final List<Proficiency> proficiencies;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'name': name,
@@ -71,5 +80,6 @@ class CharacterModel {
         'xp': xp,
         'maxHP': maxHP,
         'ac': ac,
+        'proficiencies': proficiencies.map((Proficiency p) => p.index).toList(),
       };
 }

@@ -15,7 +15,7 @@ class CharacterDataFrame extends StatelessWidget {
 
   final String label;
   final String value;
-  final int? roleColor;
+  final Color? roleColor;
   final bool proficiency;
   final double width;
   // TODO(rymfire): tap frame
@@ -33,7 +33,7 @@ class CharacterDataFrame extends StatelessWidget {
             children: <Widget>[
               if (proficiency == true && roleColor != null)
                 CircleAvatar(
-                  backgroundColor: Color(roleColor!),
+                  backgroundColor: roleColor,
                   radius: 12.0,
                 )
               else

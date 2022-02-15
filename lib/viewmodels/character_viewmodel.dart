@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/constants/proficiency.dart';
 import '../core/constants/role.dart';
 import '../models/character_model.dart';
 
@@ -53,6 +54,8 @@ class CharacterViewModel {
   int get persuasion => charismaMod;
   int get perception => charismaMod;
   int get intimidation => charismaMod;
+
+  List<Proficiency> get proficiencies => _characterModel.proficiencies;
 
   int get level {
     if (xp >= 190000) {
