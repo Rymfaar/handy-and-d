@@ -16,6 +16,7 @@ void main() {
         xp: 300,
         maxHP: 12,
         ac: 11,
+        abilities: <String, int>{},
       ),
     );
 
@@ -25,6 +26,42 @@ void main() {
     expect(characterViewModel.xp, 300);
     expect(characterViewModel.maxHP, 12);
     expect(characterViewModel.ac, 11);
+  });
+
+  test(
+      "Given a CharacterViewModel - When getting it's ability stats - Then getting the correct data",
+      () async {
+    final CharacterViewModel characterViewModel = CharacterViewModel(
+      character: CharacterModel(
+        name: 'Yun',
+        role: Role.DRUID,
+        race: 'Elve',
+        xp: 300,
+        maxHP: 12,
+        ac: 11,
+        abilities: <String, int>{
+          'str': 16,
+          'dex': 15,
+          'con': 12,
+          'int': 8,
+          'wis': 10,
+          'cha': 14,
+        },
+      ),
+    );
+
+    expect(characterViewModel.strength, 16);
+    expect(characterViewModel.dexterity, 15);
+    expect(characterViewModel.constitution, 12);
+    expect(characterViewModel.intelligence, 8);
+    expect(characterViewModel.wisdom, 10);
+    expect(characterViewModel.charisma, 14);
+    expect(characterViewModel.strengthMod, 3);
+    expect(characterViewModel.dexterityMod, 2);
+    expect(characterViewModel.constitutionMod, 1);
+    expect(characterViewModel.intelligenceMod, -1);
+    expect(characterViewModel.wisdomMod, 0);
+    expect(characterViewModel.charismaMod, 2);
   });
 
   test(
@@ -63,6 +100,7 @@ void main() {
           xp: step,
           maxHP: 12,
           ac: 11,
+          abilities: <String, int>{},
         ),
       );
       expect(characterViewModel.level, _level);
@@ -189,6 +227,7 @@ void main() {
           xp: 0,
           maxHP: 10,
           ac: 10,
+          abilities: <String, int>{},
         ),
       );
       expect(characterViewModel.roleLabel, _results[idx]['roleLabel']);
