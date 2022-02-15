@@ -15,6 +15,20 @@ class CharacterViewModel {
   int get maxHP => _characterModel.maxHP;
   int get ac => _characterModel.ac;
 
+  int get strength => _characterModel.abilities['str'] ?? 10;
+  int get dexterity => _characterModel.abilities['dex'] ?? 10;
+  int get constitution => _characterModel.abilities['con'] ?? 10;
+  int get intelligence => _characterModel.abilities['int'] ?? 10;
+  int get wisdom => _characterModel.abilities['wis'] ?? 10;
+  int get charisma => _characterModel.abilities['cha'] ?? 10;
+
+  int get strengthMod => ((strength - 10) / 2).floor();
+  int get dexterityMod => ((dexterity - 10) / 2).floor();
+  int get constitutionMod => ((constitution - 10) / 2).floor();
+  int get intelligenceMod => ((intelligence - 10) / 2).floor();
+  int get wisdomMod => ((wisdom - 10) / 2).floor();
+  int get charismaMod => ((charisma - 10) / 2).floor();
+
   int get level {
     if (xp >= 190000) {
       return 20;

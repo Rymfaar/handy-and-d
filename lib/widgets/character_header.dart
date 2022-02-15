@@ -53,7 +53,7 @@ class CharacterHeader extends StatelessWidget {
         ),
         const SizedBox(height: margin.MARGIN_L),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
             const CharacterDataFrame(
