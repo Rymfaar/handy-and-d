@@ -30,35 +30,82 @@ class CharacterSkillsTab extends StatelessWidget {
               const SizedBox(height: margin.MARGIN_L),
               const SectionTitle('Abilities'),
               const SizedBox(height: margin.MARGIN_L),
-              Column(
-                children: <Row>[
-                  Row(
-                    children: <Widget>[
-                      CharacterDataFrame(
-                        label: 'Strength',
-                        value: '${characterData.strengthMod}',
-                      ),
-                      const SizedBox(width: margin.MARGIN_M),
-                      CharacterDataFrame(
-                        label: 'Dexterity',
-                        value: '${characterData.dexterityMod}',
-                      ),
-                      const SizedBox(width: margin.MARGIN_M),
-                      CharacterDataFrame(
-                        label: 'Constitution',
-                        value: '${characterData.constitutionMod}',
-                      )
-                    ],
-                  ),
-                ],
-              ),
+              _abilityFrames(),
               const SizedBox(height: margin.MARGIN_L),
               const SectionTitle('Skills'),
+              const SizedBox(height: margin.MARGIN_L),
+              _skillFrames(),
               const SizedBox(height: margin.MARGIN_L),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Column _skillFrames() {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <CharacterDataFrame>[
+            CharacterDataFrame(
+              label: 'Acrobatics',
+              value: '${characterData.acrobatics}',
+            ),
+            CharacterDataFrame(
+              label: 'Animal Handling',
+              value: '${characterData.animalHandling}',
+            ),
+            CharacterDataFrame(
+              label: 'Arcana',
+              value: '${characterData.arcana}',
+            )
+          ],
+        )
+      ],
+    );
+  }
+
+  Column _abilityFrames() {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <CharacterDataFrame>[
+            CharacterDataFrame(
+              label: 'Strength',
+              value: '${characterData.strengthMod}',
+            ),
+            CharacterDataFrame(
+              label: 'Dexterity',
+              value: '${characterData.dexterityMod}',
+            ),
+            CharacterDataFrame(
+              label: 'Constitution',
+              value: '${characterData.constitutionMod}',
+            )
+          ],
+        ),
+        const SizedBox(height: margin.MARGIN_M),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <CharacterDataFrame>[
+            CharacterDataFrame(
+              label: 'Intelligence',
+              value: '${characterData.intelligenceMod}',
+            ),
+            CharacterDataFrame(
+              label: 'Wisdom',
+              value: '${characterData.wisdomMod}',
+            ),
+            CharacterDataFrame(
+              label: 'Charisma',
+              value: '${characterData.charismaMod}',
+            )
+          ],
+        ),
+      ],
     );
   }
 }

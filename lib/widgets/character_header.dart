@@ -54,28 +54,29 @@ class CharacterHeader extends StatelessWidget {
         const SizedBox(height: margin.MARGIN_L),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
+          children: <CharacterDataFrame>[
             // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
             const CharacterDataFrame(
               label: 'Hit Dice',
               value: '1d10',
+              width: 75.0,
             ),
-            const SizedBox(width: margin.MARGIN_M),
             // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
             const CharacterDataFrame(
               label: 'Initiative',
               value: '+2',
+              width: 75.0,
             ),
-            const SizedBox(width: margin.MARGIN_M),
             // TODO(abeaudoin): hardcoded values -> get those data from viewmodel
             const CharacterDataFrame(
               label: 'Speed',
               value: '30 feet',
+              width: 75.0,
             ),
-            const SizedBox(width: margin.MARGIN_M),
             CharacterDataFrame(
               label: 'Proficiency',
               value: '+${characterData.proficiencyBonus}',
+              width: 75.0,
             ),
           ],
         ),

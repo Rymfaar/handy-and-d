@@ -29,6 +29,31 @@ class CharacterViewModel {
   int get wisdomMod => ((wisdom - 10) / 2).floor();
   int get charismaMod => ((charisma - 10) / 2).floor();
 
+  // TODO(rymfire): profiencies
+  // STR-based skills
+  int get athletics => strengthMod;
+  // DEX-based skills
+  int get acrobatics => dexterityMod;
+  int get stealth => dexterityMod;
+  int get sleightOfHands => dexterityMod;
+  // INT-based skills
+  int get arcana => intelligenceMod;
+  int get history => intelligenceMod;
+  int get nature => intelligenceMod;
+  int get religion => intelligenceMod;
+  int get investigation => intelligenceMod;
+  // WIS-based skills
+  int get animalHandling => wisdomMod;
+  int get deception => wisdomMod;
+  int get medicine => wisdomMod;
+  int get insight => wisdomMod;
+  int get survival => wisdomMod;
+  // CHA-based skills
+  int get performance => charismaMod;
+  int get persuasion => charismaMod;
+  int get perception => charismaMod;
+  int get intimidation => charismaMod;
+
   int get level {
     if (xp >= 190000) {
       return 20;

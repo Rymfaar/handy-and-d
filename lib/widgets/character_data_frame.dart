@@ -9,6 +9,7 @@ class CharacterDataFrame extends StatelessWidget {
     required this.value,
     this.roleColor,
     this.proficiency = false,
+    this.width = 110.0,
     Key? key,
   }) : super(key: key);
 
@@ -16,28 +17,32 @@ class CharacterDataFrame extends StatelessWidget {
   final String value;
   final int? roleColor;
   final bool proficiency;
+  final double width;
   // TODO(rymfire): tap frame
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        CustomText(label, defaultStyle: CAPTION),
-        const SizedBox(height: margin.MARGIN_XS),
-        Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            if (proficiency == true && roleColor != null)
-              CircleAvatar(
-                backgroundColor: Color(roleColor!),
-                radius: 12.0,
-              )
-            else
-              Container(),
-            CustomText(value, defaultStyle: TEXT_BOLD),
-          ],
-        ),
-      ],
+    return SizedBox(
+      width: width,
+      child: Column(
+        children: <Widget>[
+          CustomText(label, defaultStyle: CAPTION),
+          const SizedBox(height: margin.MARGIN_XS),
+          Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              if (proficiency == true && roleColor != null)
+                CircleAvatar(
+                  backgroundColor: Color(roleColor!),
+                  radius: 12.0,
+                )
+              else
+                Container(),
+              CustomText(value, defaultStyle: TEXT_BOLD),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
