@@ -43,7 +43,10 @@ class _CharacterViewState extends State<CharacterView> {
           controller: widget.controller,
           characterData: widget.characterViewModel,
         ),
-        const CharacterInventoryTab(),
+        CharacterInventoryTab(
+          controller: widget.controller,
+          characterData: widget.characterViewModel,
+        ),
         const CharacterActionsTab(),
         const CharacterNotesTab(),
         const CharacterIdentityTab(),
