@@ -3,6 +3,7 @@ import '../core/constants/proficiency.dart';
 import '../core/constants/role.dart';
 import '../models/character_model.dart';
 import '../models/item_model.dart';
+import '../widgets/item.dart';
 
 class CharacterViewModel {
   CharacterViewModel({required CharacterModel character})
@@ -236,7 +237,6 @@ class CharacterViewModel {
   }
 
   List<ItemModel> get backpackItems {
-    final List<ItemModel> items = this.items;
     final List<ItemModel> backpackItemList = <ItemModel>[];
 
     for (final ItemModel item in items) {
@@ -245,5 +245,16 @@ class CharacterViewModel {
       }
     }
     return backpackItemList;
+  }
+
+  List<ItemModel> get equippedItems {
+    final List<ItemModel> equippedItemList = <ItemModel>[];
+
+    for (final ItemModel item in items) {
+      if (item.isEquipped == true) {
+        equippedItemList.add(item);
+      }
+    }
+    return equippedItemList;
   }
 }

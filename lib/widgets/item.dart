@@ -10,6 +10,7 @@ class Item extends StatelessWidget {
   const Item({
     required this.title,
     required this.itemCategory,
+    required this.number,
     this.price,
     this.weight,
     this.description,
@@ -18,6 +19,7 @@ class Item extends StatelessWidget {
 
   final String title;
   final ItemCategory itemCategory;
+  final int number;
   // TODO(rymfire): item price using a currency enum -> tuple ?
   final int? price;
   final int? weight;
@@ -28,7 +30,7 @@ class Item extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const ItemNumberIndicator(),
+        ItemNumberIndicator(value: number),
         const SizedBox(width: margin.MARGIN_S),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +63,7 @@ class Item extends StatelessWidget {
               ],
             ),
             const SizedBox(height: margin.MARGIN_XS),
-            if (description != null)
+            if (description != null && description!.isNotEmpty)
               CustomText(description!, defaultStyle: TEXT),
           ],
         ),

@@ -5,6 +5,7 @@ class ItemModel {
     required this.name,
     required this.isEquipped,
     required this.itemCategory,
+    this.number = 1,
     this.isMagic = false,
     this.price,
     this.weight,
@@ -20,6 +21,7 @@ class ItemModel {
       price: json['price'] as int,
       weight: json['weight'] as int,
       description: json['description'] as String,
+        number: json['#'] as int
     );
   }
 
@@ -27,6 +29,7 @@ class ItemModel {
   final bool isEquipped;
   final bool isMagic;
   final ItemCategory itemCategory;
+  final int number;
   final int? price;
   final int? weight;
   final String? description;
@@ -39,5 +42,6 @@ class ItemModel {
         'price': price,
         'weight': weight,
         'description': description,
+        '#': number
       };
 }

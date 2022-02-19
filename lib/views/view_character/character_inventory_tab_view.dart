@@ -21,7 +21,6 @@ class CharacterInventoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(characterData.items[0].name); //! delete debug
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
@@ -53,7 +52,7 @@ class CharacterInventoryTab extends StatelessWidget {
   ListView _backpackItems() {
     final List<ItemModel> items = characterData.backpackItems;
 
-    return ListView.builder(
+    return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: items.length,
@@ -64,20 +63,35 @@ class CharacterInventoryTab extends StatelessWidget {
           price: items[idx].price,
           weight: items[idx].weight,
           description: items[idx].description?.replaceAll(r'\n', '\n'),
+          number: items[idx].number,
         );
+      },
+      separatorBuilder: (BuildContext context, int idx) {
+        return const SizedBox(height: margin.MARGIN_L);
       },
     );
   }
 
-  Column _equippedItems() {
-    return Column(
-      children: const <Widget>[
-        // TODO(rymfire): ListView.builder
-        Item(
-          title: 'Silver Battleaxe',
-          itemCategory: ItemCategory.WEAPON,
-        ),
-      ],
+  ListView _equippedItems() {
+    final List<ItemModel> items = characterData.equippedItems;
+
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: items.length,
+      itemBuilder: (BuildContext context, int idx) {
+        return Item(
+          title: items[idx].name,
+          itemCategory: items[idx].itemCategory,
+          price: items[idx].price,
+          weight: items[idx].weight,
+          description: items[idx].description?.replaceAll(r'\n', '\n'),
+          number: items[idx].number,
+        );
+      },
+      separatorBuilder: (BuildContext context, int idx) {
+        return const SizedBox(height: margin.MARGIN_L);
+      },
     );
   }
 

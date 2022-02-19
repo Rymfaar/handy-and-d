@@ -16,12 +16,12 @@ class ItemNumberIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
-      children: const <Widget>[
-        CircleAvatar(
+      children: <Widget>[
+        const CircleAvatar(
           backgroundColor: Color(Contrast.WHITE01),
           radius: 17.5,
         ),
-        CustomText('1', defaultStyle: TEXT),
+        CustomText('$value', defaultStyle: TEXT),
       ],
     );
   }
