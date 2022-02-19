@@ -1,5 +1,6 @@
 import '../core/constants/proficiency.dart';
 import '../core/constants/role.dart';
+import 'item_model.dart';
 
 class CharacterModel {
   CharacterModel({
@@ -11,6 +12,7 @@ class CharacterModel {
     required this.ac,
     required this.abilities,
     this.proficiencies = const <Proficiency>[],
+    this.items = const <ItemModel>[],
   });
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
@@ -41,6 +43,8 @@ class CharacterModel {
   factory CharacterModel.fromFirestore(Map<String, dynamic> json) {
     final Map<String, dynamic> abilities =
         json['abilities'] as Map<String, dynamic>;
+    final List<Map<String, dynamic>> items =
+        List<Map<String, dynamic>>.from(json['items'] as List<dynamic>);
 
     return CharacterModel(
       name: json['name'] as String,
@@ -60,6 +64,9 @@ class CharacterModel {
       proficiencies: List<int>.from(json['proficiencies'] as Iterable<dynamic>)
           .map((int proficiency) => Proficiency.values[proficiency])
           .toList(),
+      items: items
+          .map((Map<String, dynamic> data) => ItemModel.fromFirebase(data))
+          .toList(),
     );
   }
 
@@ -71,6 +78,7 @@ class CharacterModel {
   final int maxHP;
   final int ac;
   final List<Proficiency> proficiencies;
+  final List<ItemModel> items;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'name': name,

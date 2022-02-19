@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../core/constants/color_style.dart';
 import '../../core/constants/item_category.dart';
 import '../../core/constants/margin.dart' as margin;
-import '../../core/constants/text_style.dart';
+import '../../models/item_model.dart';
 import '../../viewmodels/character_viewmodel.dart';
 import '../../widgets/character_data_frame.dart';
 import '../../widgets/character_header.dart';
-import '../../widgets/custom_text.dart';
 import '../../widgets/item.dart';
-import '../../widgets/item_number_indicator.dart';
 import '../../widgets/section_title.dart';
 import 'character_controller.dart';
 
@@ -24,6 +21,7 @@ class CharacterInventoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(characterData.items[0].name); //! delete debug
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: margin.MARGIN_M),
@@ -39,22 +37,47 @@ class CharacterInventoryTab extends StatelessWidget {
               const SizedBox(height: margin.MARGIN_L),
               const SectionTitle('Equiped'),
               const SizedBox(height: margin.MARGIN_L),
-              Column(
-                children: const <Widget>[
-                  // TODO(rymfire): ListView.builder
-                  Item(
-                    title: 'Silver Battleaxe',
-                    itemCategory: ItemCategory.WEAPON,
-                  ),
-                ],
-              ),
+              _equippedItems(),
               const SizedBox(height: margin.MARGIN_L),
               const SectionTitle('Backpack'),
+              const SizedBox(height: margin.MARGIN_L),
+              _backpackItems(),
               const SizedBox(height: margin.MARGIN_L),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  ListView _backpackItems() {
+    final List<ItemModel> items = characterData.backpackItems;
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: items.length,
+      itemBuilder: (BuildContext context, int idx) {
+        return Item(
+          title: items[idx].name,
+          itemCategory: items[idx].itemCategory,
+          price: items[idx].price,
+          weight: items[idx].weight,
+          description: items[idx].description?.replaceAll(r'\n', '\n'),
+        );
+      },
+    );
+  }
+
+  Column _equippedItems() {
+    return Column(
+      children: const <Widget>[
+        // TODO(rymfire): ListView.builder
+        Item(
+          title: 'Silver Battleaxe',
+          itemCategory: ItemCategory.WEAPON,
+        ),
+      ],
     );
   }
 
@@ -81,5 +104,3 @@ class CharacterInventoryTab extends StatelessWidget {
     );
   }
 }
-
-

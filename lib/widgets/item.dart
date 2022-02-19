@@ -10,19 +10,18 @@ class Item extends StatelessWidget {
   const Item({
     required this.title,
     required this.itemCategory,
-    // this.price,
-    // this.weight,
-    // this.description,
+    this.price,
+    this.weight,
+    this.description,
     Key? key,
   }) : super(key: key);
 
   final String title;
   final ItemCategory itemCategory;
   // TODO(rymfire): item price using a currency enum -> tuple ?
-  // final ItemPrice?
-  //     price;
-  // final int? weight;
-  // final String? description;
+  final int? price;
+  final int? weight;
+  final String? description;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +35,34 @@ class Item extends StatelessWidget {
           children: <Widget>[
             CustomText(title, defaultStyle: TEXT_BOLD),
             // TODO(rymfire): Row with flexible category price and weight
-            const CustomText('CATEGORY • PRICE • WEIGHT',
-                defaultStyle: CAPTION),
+            Row(
+              children: <Widget>[
+                // Item category caption
+                if (itemCategory != ItemCategory.UNDEFINED)
+                  const CustomText('WEAPON', defaultStyle: CAPTION)
+                else
+                  Container(),
+                // Divider
+                if (itemCategory != ItemCategory.UNDEFINED && price != null)
+                  const CustomText(' • ', defaultStyle: CAPTION),
+                // Price caption
+                if (price != null)
+                  CustomText('$price GOLD', defaultStyle: CAPTION)
+                else
+                  Container(),
+                // Divider
+                if (price != null && weight != null)
+                  const CustomText(' • ', defaultStyle: CAPTION),
+                // Weight caption
+                if (weight != null)
+                  CustomText('$weight LBS', defaultStyle: CAPTION)
+                else
+                  Container(),
+              ],
+            ),
             const SizedBox(height: margin.MARGIN_XS),
-            const CustomText('Short description', defaultStyle: TEXT),
+            if (description != null)
+              CustomText(description!, defaultStyle: TEXT),
           ],
         ),
       ],

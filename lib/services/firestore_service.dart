@@ -33,6 +33,7 @@ class FirestoreService {
             Map<String, dynamic>.from(snapshot.data() ?? <String, dynamic>{});
         characterData.add(data);
       }
+
       return characterData
           .map(
               (Map<String, dynamic> data) => CharacterModel.fromFirestore(data))

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../core/constants/proficiency.dart';
 import '../core/constants/role.dart';
 import '../models/character_model.dart';
+import '../models/item_model.dart';
 
 class CharacterViewModel {
   CharacterViewModel({required CharacterModel character})
@@ -15,6 +16,7 @@ class CharacterViewModel {
   int get xp => _characterModel.xp;
   int get maxHP => _characterModel.maxHP;
   int get ac => _characterModel.ac;
+  List<ItemModel> get items => _characterModel.items;
 
   int get strength => _characterModel.abilities['str'] ?? 10;
   int get dexterity => _characterModel.abilities['dex'] ?? 10;
@@ -231,5 +233,17 @@ class CharacterViewModel {
       case Role.ARTIFICER:
         return const Color(Artificer.SECONDARY);
     }
+  }
+
+  List<ItemModel> get backpackItems {
+    final List<ItemModel> items = this.items;
+    final List<ItemModel> backpackItemList = <ItemModel>[];
+
+    for (final ItemModel item in items) {
+      if (item.isEquipped == false) {
+        backpackItemList.add(item);
+      }
+    }
+    return backpackItemList;
   }
 }
